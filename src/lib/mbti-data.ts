@@ -1,0 +1,258 @@
+export interface MBTITypeInfo {
+  type: string;
+  nickname: string;
+  overview: string;
+  strengths: string[];
+  weaknesses: string[];
+  communicationStyle: string;
+  careerInclination: string;
+  relationshipTraits: string;
+  celebrities: { name: string; profession: string; explanation: string }[];
+}
+
+export const mbtiData: Record<string, MBTITypeInfo> = {
+  INTJ: {
+    type: "INTJ",
+    nickname: "The Architect",
+    overview: "Strategic, independent thinkers with a natural thirst for knowledge. INTJs are innovative problem-solvers who approach life with a unique combination of imagination and logic. They see possibilities where others see obstacles.",
+    strengths: ["Strategic thinking", "Independent", "Determined", "Open-minded", "Jack-of-all-trades"],
+    weaknesses: ["Overly critical", "Dismissive of emotions", "Arrogant", "Socially clueless", "Loathe rules"],
+    communicationStyle: "Direct and matter-of-fact. INTJs prefer substance over small talk and appreciate intellectual discussions. They value efficiency in communication and may come across as blunt.",
+    careerInclination: "Excel in fields requiring strategic thinking: science, engineering, architecture, law, and business strategy. They thrive in roles that allow autonomy and intellectual challenge.",
+    relationshipTraits: "Seek deep, meaningful connections over casual relationships. Loyal and supportive partners who value intellectual compatibility and personal growth.",
+    celebrities: [
+      { name: "Elon Musk", profession: "Entrepreneur", explanation: "Demonstrates the INTJ's strategic vision and relentless pursuit of ambitious goals." },
+      { name: "Christopher Nolan", profession: "Film Director", explanation: "His complex, layered storytelling reflects the INTJ's love for intricate systems." },
+      { name: "Michelle Obama", profession: "Former First Lady", explanation: "Shows the INTJ's ability to plan strategically and inspire through vision." },
+    ],
+  },
+  INTP: {
+    type: "INTP",
+    nickname: "The Logician",
+    overview: "Innovative inventors with an unquenchable thirst for knowledge. INTPs are quiet, contemplative souls who love to analyze and understand the underlying principles of their world.",
+    strengths: ["Analytical", "Original", "Open-minded", "Curious", "Objective"],
+    weaknesses: ["Disconnected", "Insensitive", "Dissatisfied", "Impatient", "Perfectionist"],
+    communicationStyle: "Precise and thoughtful. INTPs prefer discussing ideas and theories. They may struggle with emotional conversations but excel at logical debates.",
+    careerInclination: "Thrive in research, science, technology, and philosophy. They need intellectual freedom and challenges to stay engaged.",
+    relationshipTraits: "Value intellectual connection and independence. They may seem distant but are deeply loyal to those who earn their trust.",
+    celebrities: [
+      { name: "Albert Einstein", profession: "Physicist", explanation: "The quintessential INTP, driven by pure curiosity and theoretical exploration." },
+      { name: "Bill Gates", profession: "Entrepreneur", explanation: "Demonstrates INTP's analytical approach and innovative thinking." },
+      { name: "Tina Fey", profession: "Comedian & Writer", explanation: "Shows the INTP's clever wit and observational humor." },
+    ],
+  },
+  ENTJ: {
+    type: "ENTJ",
+    nickname: "The Commander",
+    overview: "Bold, imaginative and strong-willed leaders who always find a way. ENTJs are natural-born leaders who organize people and resources to achieve their goals with confidence and authority.",
+    strengths: ["Efficient", "Energetic", "Self-confident", "Strong-willed", "Strategic thinker"],
+    weaknesses: ["Stubborn", "Intolerant", "Impatient", "Arrogant", "Cold and ruthless"],
+    communicationStyle: "Assertive and direct. ENTJs speak with authority and confidence. They prefer efficient communication and can seem impatient with indecisiveness.",
+    careerInclination: "Excel as executives, entrepreneurs, lawyers, and in any leadership role. They thrive where they can implement their vision and lead others.",
+    relationshipTraits: "Approach relationships with the same drive as their careers. They are committed partners who value growth and intellectual stimulation.",
+    celebrities: [
+      { name: "Steve Jobs", profession: "Entrepreneur", explanation: "Embodied the ENTJ's visionary leadership and uncompromising standards." },
+      { name: "Margaret Thatcher", profession: "Politician", explanation: "The 'Iron Lady' exemplified ENTJ decisiveness and strong will." },
+      { name: "Gordon Ramsay", profession: "Chef & TV Host", explanation: "Shows the ENTJ's demanding nature and drive for excellence." },
+    ],
+  },
+  ENTP: {
+    type: "ENTP",
+    nickname: "The Debater",
+    overview: "Smart and curious thinkers who cannot resist an intellectual challenge. ENTPs are innovative and enterprising, always looking for new ways to solve problems and shake up the status quo.",
+    strengths: ["Knowledgeable", "Quick thinker", "Charismatic", "Energetic", "Excellent brainstormer"],
+    weaknesses: ["Argumentative", "Insensitive", "Intolerant", "Unfocused", "Dislike practical matters"],
+    communicationStyle: "Enthusiastic and quick-witted. ENTPs love debates and playing devil's advocate. They communicate with energy and humor but may overlook others' feelings.",
+    careerInclination: "Succeed as entrepreneurs, lawyers, consultants, and in creative fields. They need variety and intellectual stimulation to stay engaged.",
+    relationshipTraits: "Exciting and innovative partners who keep relationships fresh. They value intellectual connection and independence in relationships.",
+    celebrities: [
+      { name: "Mark Twain", profession: "Author", explanation: "His wit and satirical style reflect the ENTP's love of clever debate." },
+      { name: "Tom Hanks", profession: "Actor", explanation: "Demonstrates the ENTP's versatility and engaging personality." },
+      { name: "Sacha Baron Cohen", profession: "Comedian", explanation: "Shows the ENTP's provocative humor and boundary-pushing nature." },
+    ],
+  },
+  INFJ: {
+    type: "INFJ",
+    nickname: "The Advocate",
+    overview: "Quiet and mystical, yet inspiring and tireless idealists. INFJs are the rarest personality type, driven by a deep sense of idealism and morality. They seek meaning in all things.",
+    strengths: ["Creative", "Insightful", "Principled", "Passionate", "Altruistic"],
+    weaknesses: ["Sensitive", "Extremely private", "Perfectionistic", "Avoid confrontation", "Burn out easily"],
+    communicationStyle: "Thoughtful and empathetic. INFJs listen deeply and communicate with warmth. They prefer meaningful conversations over small talk.",
+    careerInclination: "Thrive as counselors, writers, therapists, and in humanitarian work. They need a sense of purpose in their work to feel fulfilled.",
+    relationshipTraits: "Seek deep, authentic connections. They are devoted partners who intuit their loved ones' needs but may struggle with setting boundaries.",
+    celebrities: [
+      { name: "Martin Luther King Jr.", profession: "Civil Rights Leader", explanation: "Exemplified the INFJ's vision for a better world and moral conviction." },
+      { name: "Lady Gaga", profession: "Singer", explanation: "Shows the INFJ's creativity and advocacy for social causes." },
+      { name: "J.K. Rowling", profession: "Author", explanation: "Her imaginative storytelling reflects the INFJ's creative depth." },
+    ],
+  },
+  INFP: {
+    type: "INFP",
+    nickname: "The Mediator",
+    overview: "Poetic, kind and altruistic people, always eager to help a good cause. INFPs are dreamers guided by their own values and beliefs, seeking to understand themselves and help others.",
+    strengths: ["Empathetic", "Generous", "Open-minded", "Creative", "Idealistic"],
+    weaknesses: ["Unrealistic", "Self-isolating", "Unfocused", "Emotionally vulnerable", "Desperate to please"],
+    communicationStyle: "Gentle and supportive. INFPs prefer one-on-one conversations and express themselves through creative means. They avoid conflict but speak up for their values.",
+    careerInclination: "Excel in creative fields, counseling, writing, and healing professions. They need work that aligns with their values and allows creative expression.",
+    relationshipTraits: "Romantic idealists who seek deep emotional connections. They are loyal and caring partners who may idealize their relationships.",
+    celebrities: [
+      { name: "William Shakespeare", profession: "Playwright", explanation: "His exploration of human nature reflects the INFP's depth of feeling." },
+      { name: "Johnny Depp", profession: "Actor", explanation: "Demonstrates the INFP's artistic nature and unique individuality." },
+      { name: "Björk", profession: "Musician", explanation: "Shows the INFP's creative expression and emotional authenticity." },
+    ],
+  },
+  ENFJ: {
+    type: "ENFJ",
+    nickname: "The Protagonist",
+    overview: "Charismatic and inspiring leaders, able to mesmerize their listeners. ENFJs are natural-born leaders, full of passion and charisma. They inspire others to achieve their goals.",
+    strengths: ["Tolerant", "Reliable", "Charismatic", "Altruistic", "Natural leaders"],
+    weaknesses: ["Overly idealistic", "Too selfless", "Overly sensitive", "Fluctuating self-esteem", "Struggle to make tough decisions"],
+    communicationStyle: "Warm, engaging, and persuasive. ENFJs naturally inspire and motivate others through their words. They excel at bringing people together.",
+    careerInclination: "Thrive as teachers, HR professionals, coaches, and in leadership roles. They need careers that allow them to help others grow.",
+    relationshipTraits: "Devoted and attentive partners who prioritize their loved ones' happiness. They may neglect their own needs in service of others.",
+    celebrities: [
+      { name: "Barack Obama", profession: "Politician", explanation: "Exemplifies the ENFJ's inspiring leadership and ability to unite people." },
+      { name: "Oprah Winfrey", profession: "Media Mogul", explanation: "Demonstrates the ENFJ's charisma and genuine care for others." },
+      { name: "Emma Watson", profession: "Actress & Activist", explanation: "Shows the ENFJ's advocacy and inspirational presence." },
+    ],
+  },
+  ENFP: {
+    type: "ENFP",
+    nickname: "The Campaigner",
+    overview: "Enthusiastic, creative and sociable free spirits who can always find a reason to smile. ENFPs are true free spirits who embrace life's adventures with open arms and infectious enthusiasm.",
+    strengths: ["Curious", "Observant", "Energetic", "Enthusiastic", "Excellent communicators"],
+    weaknesses: ["People-pleasers", "Unfocused", "Disorganized", "Overly accommodating", "Overly optimistic"],
+    communicationStyle: "Enthusiastic and imaginative. ENFPs communicate with warmth and creativity, easily connecting with others. They may jump between topics with excitement.",
+    careerInclination: "Excel in creative roles, journalism, counseling, and entrepreneurship. They need variety and the freedom to explore new ideas.",
+    relationshipTraits: "Romantic and devoted partners who bring joy and spontaneity. They value emotional depth and need partners who appreciate their enthusiasm.",
+    celebrities: [
+      { name: "Robin Williams", profession: "Actor & Comedian", explanation: "Embodied the ENFP's creativity, humor, and emotional depth." },
+      { name: "Robert Downey Jr.", profession: "Actor", explanation: "Demonstrates the ENFP's charm and ability to reinvent oneself." },
+      { name: "Quentin Tarantino", profession: "Film Director", explanation: "Shows the ENFP's creative vision and enthusiastic storytelling." },
+    ],
+  },
+  ISTJ: {
+    type: "ISTJ",
+    nickname: "The Logistician",
+    overview: "Practical and fact-minded individuals whose reliability cannot be doubted. ISTJs are the backbone of many organizations, bringing order, reliability, and a strong sense of duty.",
+    strengths: ["Honest", "Direct", "Responsible", "Calm and practical", "Create and enforce order"],
+    weaknesses: ["Stubborn", "Insensitive", "Always by the book", "Judgmental", "Blame themselves"],
+    communicationStyle: "Clear, direct, and factual. ISTJs prefer structured communication and may struggle with emotional discussions. They value honesty and reliability.",
+    careerInclination: "Excel in law, accounting, military, and administrative roles. They thrive in structured environments with clear expectations.",
+    relationshipTraits: "Loyal and dependable partners who show love through actions. They value tradition and may struggle with emotional expression.",
+    celebrities: [
+      { name: "Angela Merkel", profession: "Politician", explanation: "Demonstrates the ISTJ's methodical approach and reliability." },
+      { name: "Denzel Washington", profession: "Actor", explanation: "Shows the ISTJ's dedication to craft and integrity." },
+      { name: "Natalie Portman", profession: "Actress", explanation: "Reflects the ISTJ's intellectual rigor and principled nature." },
+    ],
+  },
+  ISFJ: {
+    type: "ISFJ",
+    nickname: "The Defender",
+    overview: "Very dedicated and warm protectors, always ready to defend their loved ones. ISFJs are the nurturers of the world, combining a strong sense of duty with genuine warmth.",
+    strengths: ["Supportive", "Reliable", "Patient", "Observant", "Enthusiastic"],
+    weaknesses: ["Humble", "Take things personally", "Repress feelings", "Overload themselves", "Reluctant to change"],
+    communicationStyle: "Warm, supportive, and considerate. ISFJs listen attentively and remember details about others. They prefer harmony and may avoid confrontation.",
+    careerInclination: "Thrive in healthcare, education, and service roles. They need work that allows them to help others in tangible ways.",
+    relationshipTraits: "Incredibly loyal and supportive partners who prioritize family. They show love through acts of service and may neglect their own needs.",
+    celebrities: [
+      { name: "Queen Elizabeth II", profession: "Monarch", explanation: "Exemplified the ISFJ's sense of duty and quiet strength." },
+      { name: "Beyoncé", profession: "Singer", explanation: "Shows the ISFJ's dedication to craft and protective nature." },
+      { name: "Kate Middleton", profession: "Royal", explanation: "Demonstrates the ISFJ's grace and commitment to service." },
+    ],
+  },
+  ESTJ: {
+    type: "ESTJ",
+    nickname: "The Executive",
+    overview: "Excellent administrators, unsurpassed at managing things and people. ESTJs are representatives of tradition and order, bringing structure and clear direction to any situation.",
+    strengths: ["Dedicated", "Strong-willed", "Direct and honest", "Loyal", "Excellent organizers"],
+    weaknesses: ["Inflexible", "Uncomfortable with unconventional situations", "Judgmental", "Difficulty relaxing", "Difficulty expressing emotions"],
+    communicationStyle: "Direct, clear, and authoritative. ESTJs communicate efficiently and expect others to do the same. They value facts over feelings in discussions.",
+    careerInclination: "Excel in management, law enforcement, military, and business. They thrive in structured environments with clear hierarchies.",
+    relationshipTraits: "Committed and reliable partners who take their responsibilities seriously. They show love through providing stability and security.",
+    celebrities: [
+      { name: "Judge Judy", profession: "TV Personality", explanation: "Embodies the ESTJ's no-nonsense approach and sense of justice." },
+      { name: "Uma Thurman", profession: "Actress", explanation: "Demonstrates the ESTJ's strong presence and determination." },
+      { name: "John D. Rockefeller", profession: "Industrialist", explanation: "Shows the ESTJ's organizational skills and drive for success." },
+    ],
+  },
+  ESFJ: {
+    type: "ESFJ",
+    nickname: "The Consul",
+    overview: "Extraordinarily caring, social and popular people, always eager to help. ESFJs are the glue that holds communities together, bringing warmth and organization to every group.",
+    strengths: ["Strong practical skills", "Strong sense of duty", "Loyal", "Sensitive and warm", "Good at connecting"],
+    weaknesses: ["Worried about social status", "Inflexible", "Reluctant to innovate", "Vulnerable to criticism", "Too needy"],
+    communicationStyle: "Warm, engaging, and supportive. ESFJs excel at making others feel comfortable and included. They value harmony and cooperation.",
+    careerInclination: "Thrive in healthcare, education, hospitality, and social work. They need careers that allow them to help others directly.",
+    relationshipTraits: "Devoted and nurturing partners who prioritize family harmony. They show love through care and attention to their loved ones' needs.",
+    celebrities: [
+      { name: "Taylor Swift", profession: "Singer", explanation: "Demonstrates the ESFJ's connection with fans and thoughtful gestures." },
+      { name: "Jennifer Garner", profession: "Actress", explanation: "Shows the ESFJ's warmth and dedication to family." },
+      { name: "Ed Sheeran", profession: "Musician", explanation: "Reflects the ESFJ's ability to connect emotionally through music." },
+    ],
+  },
+  ISTP: {
+    type: "ISTP",
+    nickname: "The Virtuoso",
+    overview: "Bold and practical experimenters, masters of all kinds of tools. ISTPs are natural problem-solvers who approach life with quiet determination and practical intelligence.",
+    strengths: ["Optimistic and energetic", "Creative and practical", "Spontaneous and rational", "Know how to prioritize", "Great in a crisis"],
+    weaknesses: ["Stubborn", "Insensitive", "Private and reserved", "Easily bored", "Dislike commitment"],
+    communicationStyle: "Concise and practical. ISTPs prefer action over words and may seem reserved. They communicate best when solving problems together.",
+    careerInclination: "Excel as engineers, mechanics, forensic scientists, and in technical fields. They need hands-on work with tangible results.",
+    relationshipTraits: "Independent partners who show love through actions and shared experiences. They value their personal space and may struggle with emotional expression.",
+    celebrities: [
+      { name: "Clint Eastwood", profession: "Actor & Director", explanation: "Embodies the ISTP's quiet confidence and practical approach." },
+      { name: "Michael Jordan", profession: "Athlete", explanation: "Demonstrates the ISTP's competitive drive and tactical intelligence." },
+      { name: "Kristen Stewart", profession: "Actress", explanation: "Shows the ISTP's reserved nature and authentic presence." },
+    ],
+  },
+  ISFP: {
+    type: "ISFP",
+    nickname: "The Adventurer",
+    overview: "Flexible and charming artists, always ready to explore and experience something new. ISFPs live in a colorful, sensual world, inspired by connections with people and nature.",
+    strengths: ["Charming", "Sensitive to others", "Imaginative", "Passionate", "Artistic"],
+    weaknesses: ["Fiercely independent", "Unpredictable", "Easily stressed", "Overly competitive", "Fluctuating self-esteem"],
+    communicationStyle: "Gentle and reserved. ISFPs express themselves through art and actions rather than words. They prefer one-on-one conversations.",
+    careerInclination: "Thrive in artistic fields, design, healthcare, and nature-related work. They need creative freedom and meaningful connections.",
+    relationshipTraits: "Warm and caring partners who express love through creative gestures. They value authenticity and may need help opening up emotionally.",
+    celebrities: [
+      { name: "Rihanna", profession: "Singer & Entrepreneur", explanation: "Demonstrates the ISFP's artistic expression and bold individuality." },
+      { name: "David Bowie", profession: "Musician", explanation: "Embodied the ISFP's creative reinvention and artistic vision." },
+      { name: "Frida Kahlo", profession: "Artist", explanation: "Shows the ISFP's passionate self-expression and emotional depth." },
+    ],
+  },
+  ESTP: {
+    type: "ESTP",
+    nickname: "The Entrepreneur",
+    overview: "Smart, energetic and very perceptive people who truly enjoy living on the edge. ESTPs bring an energetic and dynamic approach to life, always seeking new adventures.",
+    strengths: ["Bold", "Rational and practical", "Original", "Perceptive", "Direct"],
+    weaknesses: ["Insensitive", "Impatient", "Risk-prone", "Unstructured", "Defiant"],
+    communicationStyle: "Direct, energetic, and persuasive. ESTPs are natural salespeople who communicate with confidence and charm. They prefer action-oriented discussions.",
+    careerInclination: "Excel in sales, entrepreneurship, emergency services, and sports. They need fast-paced environments with tangible results.",
+    relationshipTraits: "Exciting and spontaneous partners who bring adventure to relationships. They may struggle with emotional depth and long-term planning.",
+    celebrities: [
+      { name: "Donald Trump", profession: "Businessman & Politician", explanation: "Demonstrates the ESTP's boldness and deal-making nature." },
+      { name: "Madonna", profession: "Singer", explanation: "Shows the ESTP's reinvention and provocative style." },
+      { name: "Jack Nicholson", profession: "Actor", explanation: "Embodies the ESTP's charisma and larger-than-life presence." },
+    ],
+  },
+  ESFP: {
+    type: "ESFP",
+    nickname: "The Entertainer",
+    overview: "Spontaneous, energetic and enthusiastic people – life is never boring around them. ESFPs are born entertainers who love the spotlight and bring joy wherever they go.",
+    strengths: ["Bold", "Original", "Aesthetics and showmanship", "Practical", "Observant"],
+    weaknesses: ["Sensitive", "Conflict-averse", "Easily bored", "Poor long-term planners", "Unfocused"],
+    communicationStyle: "Warm, enthusiastic, and engaging. ESFPs are natural storytellers who make others feel included. They prefer fun, light-hearted conversations.",
+    careerInclination: "Thrive in entertainment, hospitality, sales, and event planning. They need social interaction and the freedom to be creative.",
+    relationshipTraits: "Fun-loving and affectionate partners who keep relationships exciting. They live in the moment and may need encouragement with future planning.",
+    celebrities: [
+      { name: "Will Smith", profession: "Actor", explanation: "Embodies the ESFP's charisma and entertaining nature." },
+      { name: "Marilyn Monroe", profession: "Actress", explanation: "Demonstrated the ESFP's magnetic presence and love of life." },
+      { name: "Adele", profession: "Singer", explanation: "Shows the ESFP's emotional expressiveness and engaging performances." },
+    ],
+  },
+};
+
+export function getMBTIInfo(type: string): MBTITypeInfo | null {
+  return mbtiData[type] || null;
+}
