@@ -32,7 +32,7 @@ export default function Dashboard() {
   const { user, signOut, loading: authLoading } = useAuth();
   const [results, setResults] = useState<QuizResult[]>([]);
   const [selectedResult, setSelectedResult] = useState<QuizResult | null>(null);
-  const [currentTheme, setCurrentTheme] = useState('light');
+  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark' | 'pastel' | 'minimal'>('light');
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -73,7 +73,7 @@ export default function Dashboard() {
     navigate('/');
   };
 
-  const handleThemeChange = async (theme: string) => {
+  const handleThemeChange = async (theme: 'light' | 'dark' | 'pastel' | 'minimal') => {
     setCurrentTheme(theme);
     if (user) {
       await supabase.from('profiles').update({ preferred_theme: theme }).eq('user_id', user.id);
@@ -161,7 +161,7 @@ export default function Dashboard() {
                 {themes.map((t) => (
                   <button
                     key={t.id}
-                    onClick={() => handleThemeChange(t.id)}
+                    onClick={() => handleThemeChange(t.id as 'light' | 'dark' | 'pastel' | 'minimal')}
                     className={`flex items-center gap-2 p-3 rounded-xl transition-all ${currentTheme === t.id ? 'bg-primary text-primary-foreground' : 'bg-accent/50 hover:bg-accent'}`}
                   >
                     <t.icon className="w-4 h-4" />
