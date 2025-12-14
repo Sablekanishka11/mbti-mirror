@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
-import { Sparkles, Play, LogOut, Calendar, Users, Sun, Moon, Palette, Minus } from 'lucide-react';
+import { Sparkles, Play, LogOut, Calendar, Users, Sun, Moon, Palette, Minus, Share2 } from 'lucide-react';
 import { format } from 'date-fns';
-
+import ShareableCard from '@/components/ShareableCard';
+import CelebrityInsight from '@/components/CelebrityInsight';
 interface QuizResult {
   id: string;
   mbti_type: string;
@@ -34,6 +35,7 @@ export default function Dashboard() {
   const [selectedResult, setSelectedResult] = useState<QuizResult | null>(null);
   const [currentTheme, setCurrentTheme] = useState<'light' | 'dark' | 'pastel' | 'minimal'>('light');
   const [loading, setLoading] = useState(true);
+  const [showShareCard, setShowShareCard] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -106,14 +108,19 @@ export default function Dashboard() {
           <div className="lg:col-span-2 space-y-6">
             {selectedResult ? (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-2xl p-6 border border-border/50">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center">
-                    <span className="text-2xl font-display font-bold text-primary">{selectedResult.mbti_type}</span>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center">
+                      <span className="text-2xl font-display font-bold text-primary">{selectedResult.mbti_type}</span>
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">{format(new Date(selectedResult.created_at), 'PPP')}</p>
+                      <h2 className="text-xl font-display font-semibold">Your Personality Type</h2>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">{format(new Date(selectedResult.created_at), 'PPP')}</p>
-                    <h2 className="text-xl font-display font-semibold">Your Personality Type</h2>
-                  </div>
+                  <Button variant="glass" size="sm" onClick={() => setShowShareCard(true)}>
+                    <Share2 className="w-4 h-4 mr-2" /> Share
+                  </Button>
                 </div>
                 <p className="text-foreground/80 mb-6">{selectedResult.personality_overview}</p>
 
@@ -131,15 +138,20 @@ export default function Dashboard() {
                 <div className="border-t border-border pt-6">
                   <h3 className="font-display font-semibold text-lg mb-4 flex items-center gap-2">
                     <Users className="w-5 h-5 text-primary" /> Famous {selectedResult.mbti_type}s
+                    <span className="ml-auto flex items-center gap-1 text-xs font-normal text-primary">
+                      <Sparkles className="w-3 h-3" /> AI-Powered
+                    </span>
                   </h3>
-                  <p className="text-xs text-muted-foreground mb-4 italic">Celebrity MBTI types are based on public behavior analysis and are not officially confirmed.</p>
+                  <p className="text-xs text-muted-foreground mb-4 italic">Click on a celebrity to get AI-powered insights. Celebrity MBTI types are based on public behavior analysis.</p>
                   <div className="grid sm:grid-cols-3 gap-4">
                     {selectedResult.celebrities.map((c, i) => (
-                      <div key={i} className="bg-card rounded-xl p-4 border border-border/50">
-                        <p className="font-semibold">{c.name}</p>
-                        <p className="text-sm text-primary">{c.profession}</p>
-                        <p className="text-xs text-muted-foreground mt-2">{c.explanation}</p>
-                      </div>
+                      <CelebrityInsight
+                        key={i}
+                        name={c.name}
+                        profession={c.profession}
+                        explanation={c.explanation}
+                        mbtiType={selectedResult.mbti_type}
+                      />
                     ))}
                   </div>
                 </div>
@@ -195,6 +207,18 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {showShareCard && selectedResult && (
+          <ShareableCard
+            mbtiType={selectedResult.mbti_type}
+            overview={selectedResult.personality_overview || ''}
+            strengths={selectedResult.strengths}
+            weaknesses={selectedResult.weaknesses}
+            onClose={() => setShowShareCard(false)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
